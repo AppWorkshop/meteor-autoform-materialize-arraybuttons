@@ -1,0 +1,37 @@
+<template name="afArrayField_materialize_smallButtons">
+  <div class="collection">
+    <div class="collection-item">
+      {{afFieldLabelText name=atts.name}}
+      {{#if getHelp this.atts.name}}
+        <span class="form-field-help">{{getHelp this.atts.name}}</span>
+      {{/if}}
+      {{#if afArrayFieldHasLessThanMaximum name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+        <a
+            type="button"
+            class="btn btn-floating waves-effect waves-light yellow-outline autoform-add-item autoform-array-btn"
+            data-autoform-field="{{atts.name}}"
+            data-autoform-minCount="{{atts.minCount}}"
+            data-autoform-maxCount="{{atts.maxCount}}">
+          <i class="material-icons">add</i>
+        </a>
+      {{/if}}
+    </div>
+    {{#if afFieldIsInvalid name=atts.name}}
+      <div class="collection-item">
+        <span class="red-text">{{{afFieldMessage name=atts.name}}}</span>
+      </div>
+    {{/if}}
+    {{#afEachArrayItem name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
+      <div class="collection-item">
+        {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
+      </div>
+      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+        <div class="collection-item">
+          <a class="btn btn-floating waves-effect waves-light yellow-outline autoform-remove-item autoform-array-btn">
+            <i class="material-icons">delete_forever</i>
+          </a>
+        </div>
+      {{/if}}
+    {{/afEachArrayItem}}
+  </div>
+</template>
