@@ -1,5 +1,5 @@
 <template name="afArrayField_materialize_smallButtons">
-  <div class="collection">
+  <div class="collection afArrayFieldCollection">
     <div class="collection-item">
       {{afFieldLabelText name=atts.name}}
       {{#if getHelp this.atts.name}}
@@ -22,16 +22,14 @@
       </div>
     {{/if}}
     {{#afEachArrayItem name=atts.name minCount=this.atts.minCount maxCount=this.atts.maxCount}}
-      <div class="collection-item">
-        {{> afQuickField name=this.name label=false options=afOptionsFromSchema}}
-      </div>
-      {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
-        <div class="collection-item">
-          <a class="btn btn-floating waves-effect waves-light yellow-outline autoform-remove-item autoform-array-btn">
+      <div class="collection-item afArrayCollectionItem">
+        {{#if afArrayFieldHasMoreThanMinimum name=../atts.name minCount=../atts.minCount maxCount=../atts.maxCount}}
+          <a class="btn btn-floating waves-effect waves-light yellow-outline autoform-remove-item autoform-array-btn autoform-array-delete-btn">
             <i class="material-icons">delete_forever</i>
           </a>
-        </div>
-      {{/if}}
+        {{/if}}
+        {{> afQuickField name=this.name label=false options=afOptionsFromSchema }}
+      </div>
     {{/afEachArrayItem}}
   </div>
 </template>

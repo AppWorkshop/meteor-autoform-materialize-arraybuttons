@@ -45,3 +45,17 @@ property of the schema item e.g.
     }
 
     ```
+    
+4. [optional] Put the array-item delete buttons alongside the input fields.
+
+    ```css
+    
+    .autoform-array-delete-btn {
+      float: right;
+    }
+    
+    .afArrayCollectionItem .input-field.col.s12 {
+      width: calc(100% - 49px);
+    }
+
+    ```
