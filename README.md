@@ -5,6 +5,8 @@ defined in the schema.
 It works by using [aldeed:template-extension]() to override the
 [afArrayField_materialize](https://github.com/djhi/meteor-autoform-materialize/blob/master/components/afArrayField/afArrayField.html) template.
 
+![image](https://cloud.githubusercontent.com/assets/1751645/17238581/7acf46fc-558f-11e6-8cd5-6fa76dc1fb9c.png)
+
 ### Installation
 
     meteor add appworkshop:autoform-materialize-array
